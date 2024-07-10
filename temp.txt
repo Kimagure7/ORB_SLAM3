@@ -1,0 +1,30 @@
+/ORB_SLAM3/Examples/Monocular-Inertial/gopro_slam \
+	--vocabulary /ORB_SLAM3/Vocabulary/ORBvoc.txt \
+	--setting /ORB_SLAM3/Examples/Monocular-Inertial/gopro10_maxlens_fisheye_setting_v1_720.yaml \
+	--input_video /umi/example_demo_session/demos/mapping/raw_video.mp4 \
+	--input_imu_json /umi/example_demo_session/demos/mapping/imu_data.json \
+	--output_trajectory_csv /umi/example_demo_session/demos/mapping/mapping_camera_trajectory.csv \
+	--save_map /umi/example_demo_session/demos/mapping/map_atlas.osa \
+	-g
+
+/ORB_SLAM3/Examples/Monocular-Inertial/gopro_slam \
+	--vocabulary /ORB_SLAM3/Vocabulary/ORBvoc.txt \
+	--setting /ORB_SLAM3/Examples/Monocular-Inertial/gopro10_maxlens_fisheye_setting_v1_720.yaml \
+	--input_video /umi/example_demo_session/demos/demo_C3441328164125_2024.01.10_10.57.34.882133/raw_video.mp4 \
+	--input_imu_json /umi/example_demo_session/demos/demo_C3441328164125_2024.01.10_10.57.34.882133/imu_data.json \
+	--output_trajectory_csv /umi/example_demo_session/demos/demo_C3441328164125_2024.01.10_10.57.34.882133/camera_trajectory.csv \
+	--load_map /umi/example_demo_session/demos/mapping/map_atlas.osa \
+	--mask_img /umi/example_demo_session/demos/demo_C3441328164125_2024.01.10_10.57.34.882133/slam_mask.png
+	--max_lost_frames 60
+	-g
+
+/umi/ORB_SLAM3/Examples/Monocular-Inertial/gopro_slam \
+	--vocabulary /ORB_SLAM3/Vocabulary/ORBvoc.txt \
+	--setting /ORB_SLAM3/Examples/Monocular-Inertial/gopro10_maxlens_fisheye_setting_v1_720.yaml \
+	--input_video /umi/example_demo_session/demos/demo_C3441328164125_2024.01.10_10.57.34.882133/raw_video.mp4 \
+	--input_imu_json /umi/example_demo_session/demos/demo_C3441328164125_2024.01.10_10.57.34.882133/imu_data.json \
+	--output_trajectory_csv /umi/example_demo_session/demos/demo_C3441328164125_2024.01.10_10.57.34.882133/camera_trajectory.csv \
+	--load_map /umi/example_demo_session/demos/mapping/map_atlas.osa \
+	--mask_img /umi/example_demo_session/demos/demo_C3441328164125_2024.01.10_10.57.34.882133/slam_mask.png
+	--max_lost_frames 60
+	-g

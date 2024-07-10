@@ -56,9 +56,9 @@ bool LoadTelemetry(const string &path_to_telemetry_file,
     }
     json j;
     file >> j;
-    const auto accl = j["1"]["streams"]["ACCL"]["samples"];
-    const auto gyro = j["1"]["streams"]["GYRO"]["samples"];
-    const auto cori = j["1"]["streams"]["CORI"]["samples"];
+    const auto accl = j["1"]["streams"]["ACCL"]["samples"]; //加速度计
+    const auto gyro = j["1"]["streams"]["GYRO"]["samples"]; //陀螺仪
+    const auto cori = j["1"]["streams"]["CORI"]["samples"]; //相机角度
     std::map<double, cv::Point3f> sorted_acc;
     std::map<double, cv::Point3f> sorted_gyr;
 
@@ -153,7 +153,7 @@ int main(int argc, char **argv) {
   } catch (const CLI::ParseError &e) {
       return app.exit(e);
   }
-
+  cout<<"num_threads: " << num_threads <<endl;
   cv::setNumThreads(num_threads);
 
   vector<double> imuTimestamps;
@@ -167,12 +167,13 @@ int main(int argc, char **argv) {
      cerr << "Failed to open setting file at: " << setting << endl;
      exit(-1);
   }
-  cv::Size img_size(fsSettings["Camera.width"],fsSettings["Camera.height"]);
+  cv::Size img_size(fsSettings["Camera.width"],fsSettings["Camera.height"]); // TOBEDONE
   fsSettings.release();
 
   vector<double> vTimestamps;
 
   // load mask image
+  // mapping的时候没有使用
   cv::Mat mask_img;
   if (!mask_img_path.empty()) {
     mask_img = cv::imread(mask_img_path, cv::IMREAD_GRAYSCALE);
@@ -270,7 +271,7 @@ int main(int argc, char **argv) {
       std::cout<<"ORB-SLAM 3 running at: "<<1./ttrack<< " FPS\n";
     }
   }
-
+  cout<<"finished"<<endl;
   // Stop all threads
   SLAM.Shutdown();
 
